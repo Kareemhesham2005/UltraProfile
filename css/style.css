@@ -28,7 +28,7 @@ header {
   background-color: white;
   padding: 15px 0;
   z-index: 500;
-  top: 0px;
+  top: -100px;
   transition: 0.5s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;

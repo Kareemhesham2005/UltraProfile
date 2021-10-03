@@ -3,6 +3,7 @@ let header = document.querySelector("#header");
 window.onscroll = function () {
   if (scrollY <= 250) {
     header.style.cssText = "top: -100px;";
+    nav.classList.remove("menu-show");
   } else {
     header.style.cssText = "top: 0px;";
   }
