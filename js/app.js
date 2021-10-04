@@ -56,3 +56,27 @@ window.addEventListener("scroll", function () {
     });
   });
 });
+
+let myLi = document.querySelectorAll("#portfolio ul li");
+let imgs = Array.from(document.querySelectorAll(".all"));
+
+myLi.forEach((li) => {
+  li.addEventListener("click", removeActive);
+  li.addEventListener("click", manageImgs);
+});
+
+function removeActive() {
+  myLi.forEach((li) => {
+    li.classList.remove("active");
+    this.classList.add("active");
+  });
+}
+
+function manageImgs() {
+  imgs.forEach((img) => {
+    img.style.display = "none";
+  });
+  document.querySelectorAll(this.getAttribute("data-filter")).forEach((el) => {
+    el.style.display = "block";
+  });
+}
