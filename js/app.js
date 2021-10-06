@@ -44,14 +44,15 @@ let links = document.querySelectorAll("header nav ul li a");
 let myPosition = "";
 window.addEventListener("scroll", function () {
   sections.forEach((sec) => {
-    const sectionTop = sec.offsetTop - 220;
+    const sectionTop = sec.offsetTop - 300;
     if (pageYOffset >= sectionTop) {
       myPosition = sec.getAttribute("id");
     }
     links.forEach((a) => {
-      a.classList.remove("active");
       if (a.getAttribute("href") === `#${myPosition}`) {
         a.classList.add("active");
+      } else {
+        a.classList.remove("active");
       }
     });
   });
