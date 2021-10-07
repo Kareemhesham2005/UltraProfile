@@ -1,24 +1,34 @@
 let header = document.querySelector("#header");
 
-window.onscroll = function () {
-  if (scrollY <= 250) {
-    header.style.cssText = "top: -100px;";
-    nav.classList.remove("menu-show");
-  } else {
-    header.style.cssText = "top: 0px;";
-  }
-};
-
 let nav = document.querySelector("header nav");
-let bars = document.querySelector("header i");
+let menu = document.querySelector("header .menu-btn");
+let menuOpen = false;
 
-bars.addEventListener("click", function () {
+menu.addEventListener("click", function () {
   if (nav.classList[0] === "menu-show") {
     nav.classList.remove("menu-show");
   } else {
     nav.classList.add("menu-show");
   }
+  if (!menuOpen) {
+    menu.classList.add("open");
+    menuOpen = true;
+  } else {
+    menu.classList.remove("open");
+    menuOpen = false;
+  }
 });
+
+window.onscroll = function () {
+  if (scrollY <= 250) {
+    header.style.cssText = "top: -100px;";
+    nav.classList.remove("menu-show");
+    menu.classList.remove("open");
+    menuOpen = false;
+  } else {
+    header.style.cssText = "top: 0px;";
+  }
+};
 
 let btn = document.querySelector("section button");
 
@@ -47,6 +57,21 @@ window.addEventListener("scroll", function () {
     const sectionTop = sec.offsetTop - 300;
     if (pageYOffset >= sectionTop) {
       myPosition = sec.getAttribute("id");
+      let bars = document.querySelectorAll(".prog span");
+      if (myPosition === "resume") {
+        bars.forEach((b) => {
+          if (bars[0] == b) {
+            b.setAttribute("data-skill", "90%");
+            b.style.cssText = "transform: translateX(0); width: 90%;";
+          } else if (bars[1] == b) {
+            b.setAttribute("data-skill", "80%");
+            b.style.cssText = "transform: translateX(0); width: 80%;";
+          } else if (bars[2] == b) {
+            b.setAttribute("data-skill", "60%");
+            b.style.cssText = "transform: translateX(0); width: 60%;";
+          }
+        });
+      }
     }
     links.forEach((a) => {
       if (a.getAttribute("href") === `#${myPosition}`) {
