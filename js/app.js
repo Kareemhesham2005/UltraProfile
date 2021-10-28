@@ -57,21 +57,6 @@ window.addEventListener("scroll", function () {
     const sectionTop = sec.offsetTop - 300;
     if (pageYOffset >= sectionTop) {
       myPosition = sec.getAttribute("id");
-      let bars = document.querySelectorAll(".prog span");
-      if (myPosition === "resume") {
-        bars.forEach((b) => {
-          if (bars[0] == b) {
-            b.setAttribute("data-skill", "90%");
-            b.style.cssText = "transform: translateX(0); width: 90%;";
-          } else if (bars[1] == b) {
-            b.setAttribute("data-skill", "80%");
-            b.style.cssText = "transform: translateX(0); width: 80%;";
-          } else if (bars[2] == b) {
-            b.setAttribute("data-skill", "60%");
-            b.style.cssText = "transform: translateX(0); width: 60%;";
-          }
-        });
-      }
     }
     links.forEach((a) => {
       if (a.getAttribute("href") === `#${myPosition}`) {
@@ -106,3 +91,14 @@ function manageImgs() {
     el.style.display = "block";
   });
 }
+
+let progressBars = document.querySelectorAll(".skills .prog span");
+let section = document.querySelector(".skills");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= section.offsetTop - 300) {
+    progressBars.forEach((bar) => {
+      bar.style.width = bar.getAttribute("data-width");
+    });
+  }
+});

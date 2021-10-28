@@ -510,7 +510,7 @@ hr {
 #resume .prog-holder .prog {
   position: relative;
   width: 100%;
-  height: 10px;
+  height: 20px;
   background-color: #d5d5d5;
   z-index: -1;
   overflow: hidden;
@@ -520,31 +520,13 @@ hr {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 10px;
+  height: 20px;
   background-color: #eb5424;
-  transition: 1.5s;
-  transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  -webkit-transition: 1.5s;
-  -moz-transition: 1.5s;
-  -ms-transition: 1.5s;
-  -o-transition: 1.5s;
-}
-#resume .prog-holder .prog span::before {
-  content: attr(data-skill);
-  position: absolute;
-  top: 50%;
-  font-size: 12px;
-  font-weight: bold;
-  right: 10px;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
 }
 
 @media (max-width: 965px) {
